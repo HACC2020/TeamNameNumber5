@@ -16,12 +16,17 @@ const question = [
 const reply = [
   ["The Coronavirus Disease, also known as COVID19, is a type of virus that spreads through mammals and birds, similar to the common cold. It is spread through saliva or nasal discharge (coughs or sneezes), so be sure to wash your hands and wear a mask!"],
 ];
-  
+
 const tryAgain = [
-  "I can't seem to understand what you are asking. If you need specific assistance, please visit https://hawaiicovid19.com or https://health.hawaii.gov/coronavirusdisease2019/ for more information.",
+  "I can't seem to understand what you are asking. If you need specific assistance, please visit " + link() + " or https://health.hawaii.gov/coronavirusdisease2019/ for more information.",
   "This maybe beyond what I can answer. Please try again, or visit https://hawaiicovid19.com or https://health.hawaii.gov/coronavirusdisease2019/ for COVID information.",
   "Uh oh, looks like I can't answer that as of now. If you'd like to find what your problem is, try visiting https://hawaiicovid19.com or https://health.hawaii.gov/coronavirusdisease2019/.",
 ];
+
+function link() { 
+  var str = "https://hawaiicovid19.com";
+  var result = str.link("https://hawaiicovid19.com");    
+} 
 
 function output(input) {
   let product;
