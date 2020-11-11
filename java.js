@@ -13,7 +13,7 @@ const question = [
   ["what is covid", "what is covid 19", "what is covid19"],
   ["do i need to self quarantine","do i need stay at home","do i need to self quarantine even if i dont have covid","do i need to self quarantine even if i dont have covid19","do i need to self quarantine even if i dont have covid-19"],
   ["how do i self quarantine","how to self quarantine",],
-  ["what do i do if i need medical help while quarantined","how to get medical help","medical help in quarantine"],
+  ["what do i do if i need medical help while quarantined","how to get medical help","medical help in quarantine",],
   ["can someone in quarantine drive another person to get medical care","drive someone with covid","drive someone with covid19","drive someone with covid-19","can i drive someone with covid to "],
   ["how do i get food and other essentials"],
   ["can i break traveler quarantine to pick up medications that cannot be delivered"],
@@ -21,7 +21,7 @@ const question = [
   ["if i lived with others who did not travel do they need to quarantine also", "does my family also need to quarantine when i quarantine"],
   ["can i walk my pet while quarantined"],
   ["can i break quarantine if i do essential work"],
-  ["how can i report someone breaking quarantine"],
+  ["how can i report someone breaking quarintine"],
   ["what is community spread"],
   ["can i get infected from packages or mail"],
   ["should i take extra percaussions if i where contacts"],
@@ -35,7 +35,7 @@ const question = [
   
 const reply = [
   ["The Coronavirus Disease, also known as COVID-19, is a type of virus that spreads through mammals and birds, similar to the common cold. It is spread through saliva or nasal discharge (coughs or sneezes), so be sure to wash your hands and wear a mask!"],
-  ["Quarantine is important to lessen the spread of COVID-19. Persons entering the State of Hawaii must quarantine for 14-days or the duration of their trip, whichever is shorter. This applies to visitors and residents arriving in Hawaii. Essential employees can submit an exemption request by visiting https://ag.hawaii.gov/travelexemption/ "],
+  ["Quarintine is important to lessen the spread of COVID-19. Persons entering the State of Hawaii must quarantine for 14-days or the duration of their trip, whichever is shorter. This applies to visitors and residents arriving in Hawaii. Essential employees can submit an exemption request by visiting https://ag.hawaii.gov/travelexemption/ "],
   ["You must go directly from the airport to your self-identified quarantine location. Do not leave to get food or other supplies and do not have visitors over. Monitor yourself for symptoms of COVID-19 daily."],
   ["Call 9-1-1 for medical emergencies. Let the operator know your travel history and that you are in travel quarantine. For non-urgent medical care, contact your doctor to see if you can arrange a telehealth alternative or if you can postpone regular appointments until after your quarantine ends."],
   ["Call 9-1-1 for transport of persons needing emergency medical care.  For non-urgent medical care, contact your doctor to see if you can arrange a telehealth alternative or if you can postpone regular appointments until after your quarantine ends. Remember to wear a mask when going out."],
@@ -58,10 +58,34 @@ const reply = [
 ];
 
 const tryAgain = [
-  "I can't seem to understand what you are asking. If you need specific assistance, please visit https://hawaiicovid19.com or https://health.hawaii.gov/coronavirusdisease2019/ for more information.",
+  "I can't seem to understand what you are asking. If you need specific assistance, please visit " + link() + " or https://health.hawaii.gov/coronavirusdisease2019/ for more information.",
   "This maybe beyond what I can answer. Please try again, or visit https://hawaiicovid19.com or https://health.hawaii.gov/coronavirusdisease2019/ for COVID information.",
   "Uh oh, looks like I can't answer that as of now. If you'd like to find what your problem is, try visiting https://hawaiicovid19.com or https://health.hawaii.gov/coronavirusdisease2019/.",
 ];
+
+function link() { 
+  var str = "https://hawaiicovid19.com";
+  var result = str.link("https://hawaiicovid19.com");
+  document.createElement("a").innerHTML = result;    
+}  
+
+function output(input) {
+  let product;
+  let text = input.toLowerCase().replace(/[^\w\s\d]/gi, "");
+  text = text
+    .replace(/ a /g, " ")
+    .replace(/i feel /g, "")
+    .replace(/whats/g, "what is")
+    .replace(/please /g, "")
+    .replace(/ please/g, "");
+
+  if (compare(question, reply, text)) {
+    product = compare(question, reply, text);
+  } else {
+    product = tryAgain[Math.floor(Math.random() * tryAgain.length)];
+  }
+  addChat(input, product);
+}
 
 function compare(questionArray, replyArray, text) {
   let item;
