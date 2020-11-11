@@ -1,14 +1,7 @@
 ::-webkit-input-placeholder { 
     color: #000000 
 }
-#chat { 
-    position: fixed; 
-    top: %; 
-    right: ; 
-    width: ; 
-    border: 0px solid #421; 
-    padding: 40px; 
-}
+
 #chat div { 
     margin: 10px; 
 } 
@@ -16,4 +9,44 @@
     border: 0; 
     padding: 5px; 
     border: 1px solid #421; 
+}
+
+.one {
+    background-color: #07020D;
+    width: 100%;  
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+#question {
+    text-align: right;
+    position: absolute;
+    right: 12px;
+    width: 200px;
+    padding: 5px;
+    }
+
+body {
+    background-color: #5DB7DE;
+    }
+
+#botchat {
+    text-align:left; 
+    position:fixed; 
+    display:block; 
+    top:15vh; 
+    border:1px solid black; 
+    border-radius: 20px; 
+    width:63.5vw; 
+    margin-left:1%; 
+    margin-right:2.25%; 
+    height:80vh; 
+    resize:none; 
+    font-family:Courier; 
+    overflow-y:auto; 
+    user-select:none; 
+    font-size:3vw;
 }
