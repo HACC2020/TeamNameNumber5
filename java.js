@@ -25,8 +25,9 @@ const tryAgain = [
 
 function link() { 
   var str = "https://hawaiicovid19.com";
-  var result = str.link("https://hawaiicovid19.com");    
-} 
+  var result = str.link("https://hawaiicovid19.com");
+  document.createElement("a").innerHTML = result;    
+}  
 
 function output(input) {
   let product;
@@ -70,4 +71,9 @@ function addChat(input, product) {
   botDiv.id = "bot";
   botDiv.innerHTML = `Chatbot: <span id="bot-response">${product}</span>`;
   chatDiv.appendChild(botDiv);
+
+  let botUp = document.getElementById("chat")
+  botUp.insertBefore(botDiv, botUp.childNodes[0])
+  let chatUp = document.getElementById("chat")
+  chatUp.insertBefore(userDiv, chatUp.childNodes[0])
 }
